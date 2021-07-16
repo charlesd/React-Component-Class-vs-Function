@@ -8,6 +8,8 @@ export default function App(props) {
 		fetch("https://restcountries.eu/rest/v2/regionalbloc/nafta")
 			.then(res => res.json())
 			.then(json => setCountries(json))
+		// Clean-up
+		return () => setCountries([])
 	}, [])
 
 	return (

@@ -6,9 +6,7 @@ import React from "react"
 export default class App extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-			countries: []
-		}
+		this.state = { countries: [] }
 	}
 
 	componentDidMount() {
@@ -16,8 +14,9 @@ export default class App extends React.Component {
 			.then(res => res.json())
 			.then(json => this.setState({ countries: json }))
 	}
-	// componentDidUpdate() {
-	// }
+	componentWillUnmount() {
+		this.setState({ countries: [] })
+	}
 
 	render() {
 		return (
