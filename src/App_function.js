@@ -1,8 +1,9 @@
 import "./styles.css"
 import React, {useState, useEffect} from "react"
+import useStickyState from "./sticky_state"
 
 export default function App(props) {
-	const [countries, setCountries] = useState([])
+	const [countries, setCountries, clearCountries] = useStickyState("Countries", [])
 
 	useEffect(() => {
 		fetch("https://restcountries.eu/rest/v2/regionalbloc/nafta")
